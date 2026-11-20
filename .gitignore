@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# macOS
+.DS_Store
+
+# Local database
+# Keep rum.db out of Git if it contains local or personal data
+data/rum.db
