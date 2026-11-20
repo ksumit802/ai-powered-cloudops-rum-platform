@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CloudOps | Operations Center</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/rum.js" defer></script>
+    <script src="/static/dashboard.js" defer></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <div>
+                <h2>CloudOps</h2>
+                <span>Operations Center</span>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <p class="nav-heading">WORKSPACE</p>
+
+            <button class="nav-item active" data-target="overview">
+                ◫ &nbsp; Overview
+            </button>
+
+            <button class="nav-item" data-target="services"
+                    data-feature="service_dashboard">
+                ◈ &nbsp; Services
+            </button>
+
+            <button class="nav-item" data-target="incidents"
+                    data-feature="incident_management">
+                ⚠ &nbsp; Incident Management
+            </button>
+
+            <button class="nav-item" data-target="tickets"
+                    data-feature="support_tickets">
+                ▤ &nbsp; Support Tickets
+            </button>
+
+            <button class="nav-item" data-target="analytics"
+                    data-feature="user_analytics">
+                ▥ &nbsp; User Analytics
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">SU</div>
+                <div>
+                    <strong>System User</strong>
+                    <span>Cloud Operator</span>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <span class="breadcrumb" id="breadcrumb">
+                    Workspace / Overview
+                </span>
+                <h1>Cloud Operations Dashboard</h1>
+            </div>
+
+            <div class="topbar-right">
+                <span class="environment">
+                    ● Demo Environment
+                </span>
+                <div class="avatar">SU</div>
+            </div>
+        </header>
+
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="page-section">
+
+            <div class="welcome">
+                <div>
+                    <h2>Welcome to CloudOps</h2>
+                    <p>
+                        Monitor services, manage incidents and understand
+                        user experience.
+                    </p>
+                </div>
+
+                <span class="date-label">Operations Overview</span>
+            </div>
+
+
+            <!-- DYNAMIC KPI CARDS -->
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Service Availability</span>
+                    <h2 id="availability-value">--</h2>
+                    <span class="positive">↑ Operational</span>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Active Incidents</span>
+                    <h2 id="incidents-value">--</h2>
+                    <span class="warning">Requires attention</span>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Support Tickets</span>
+                    <h2 id="tickets-value">--</h2>
+                    <span class="neutral">Database records</span>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">User Sessions</span>
+                    <h2 id="sessions-value">--</h2>
+                    <span class="positive">RUM monitoring enabled</span>
+                </div>
+
+            </div>
+
+
+            <!-- SERVICE HEALTH AND RECENT ACTIVITY -->
+            <div class="content-grid">
+
+                <div class="panel service-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Service Health</h3>
+                            <p>Overview of monitored cloud services</p>
+                        </div>
+
+                        <span class="status-pill">Demo Data</span>
+                    </div>
+
+                    <div class="service-row">
+                        <div>
+                            <strong>API Gateway</strong>
+                            <span>Request routing service</span>
+                        </div>
+                        <span class="healthy">● Healthy</span>
+                    </div>
+
+                    <div class="service-row">
+                        <div>
+                            <strong>Authentication Service</strong>
+                            <span>Identity and access management</span>
+                        </div>
+                        <span class="healthy">● Healthy</span>
+                    </div>
+
+                    <div class="service-row">
+                        <div>
+                            <strong>Customer Database</strong>
+                            <span>Application data storage</span>
+                        </div>
+                        <span class="degraded">● Degraded</span>
+                    </div>
+
+                    <div class="service-row">
+                        <div>
+                            <strong>Monitoring Service</strong>
+                            <span>Operational event collection</span>
+                        </div>
+                        <span class="healthy">● Healthy</span>
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT ACTIVITY -->
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Recent Activity</h3>
+                            <p>Operational events</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <span class="activity-dot green"></span>
+                        <div>
+                            <strong>API Gateway operational</strong>
+                            <p>Service health check successful</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <span class="activity-dot orange"></span>
+                        <div>
+                            <strong>Database latency detected</strong>
+                            <p>Performance investigation required</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <span class="activity-dot blue"></span>
+                        <div>
+                            <strong>RUM monitoring active</strong>
+                            <p>Browser events being collected</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section id="services" class="page-section hidden">
+
+            <div class="section-heading">
+                <h2>Cloud Services</h2>
+                <p>Monitor the health of application services.</p>
+            </div>
+
+            <div class="panel">
+                <h3>Service Overview</h3>
+
+                <div class="service-row">
+                    <strong>API Gateway</strong>
+                    <span class="healthy">● Healthy</span>
+                </div>
+
+                <div class="service-row">
+                    <strong>Authentication Service</strong>
+                    <span class="healthy">● Healthy</span>
+                </div>
+
+                <div class="service-row">
+                    <strong>Customer Database</strong>
+                    <span class="degraded">● Degraded</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INCIDENT MANAGEMENT -->
+        <section id="incidents" class="page-section hidden">
+
+            <div class="section-heading">
+                <h2>Incident Management</h2>
+                <p>Track and investigate operational incidents.</p>
+            </div>
+
+            <div class="panel">
+                <h3>Active Incidents</h3>
+
+                <div class="service-row">
+                    <strong>Database response latency</strong>
+                    <span class="warning">High</span>
+                </div>
+
+                <div class="service-row">
+                    <strong>Payment API intermittent errors</strong>
+                    <span class="degraded">Critical</span>
+                </div>
+
+                <div class="service-row">
+                    <strong>Notification delivery delay</strong>
+                    <span class="warning">Medium</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUPPORT TICKETS -->
+        <section id="tickets" class="page-section hidden">
+
+            <div class="section-heading">
+                <h2>Support Tickets</h2>
+                <p>Create and submit operational support requests.</p>
+            </div>
+
+            <div class="panel ticket-panel">
+
+                <h3>Create Support Ticket</h3>
+                <p>Describe your cloud service or application issue.</p>
+
+                <form id="ticketForm">
+
+                    <label for="issue">Issue Description</label>
+
+                    <textarea
+                        id="issue"
+                        placeholder="Describe the issue you are experiencing..."
+                        required
+                    ></textarea>
+
+                    <button type="button" id="startTicket"
+                            class="secondary-button">
+                        Start Ticket Creation
+                    </button>
+
+                    <button type="submit" class="primary-button">
+                        Submit Ticket
+                    </button>
+
+                </form>
+
+                <p id="message" class="message"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- USER ANALYTICS -->
+        <section id="analytics" class="page-section hidden">
+
+            <div class="section-heading">
+                <h2>User Experience Analytics</h2>
+                <p>Understand how users interact with the application.</p>
+            </div>
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Tracked Events</span>
+                    <h2>In Progress</h2>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Task Completion Rate</span>
+                    <h2>In Progress</h2>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Average Task Duration</span>
+                    <h2>In Progress</h2>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-label">Task Failure Rate</span>
+                    <h2>In Progress</h2>
+                </div>
+
+            </div>
+
+            <div class="panel">
+                <h3>Behaviour Analytics</h3>
+
+                <p>
+                    User journey analysis, task abandonment detection
+                    and AI-generated operational insights are currently
+                    under development.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            CloudOps Operations Center · AI-powered RUM project · Demo environment
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
